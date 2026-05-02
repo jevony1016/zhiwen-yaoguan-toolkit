@@ -1,0 +1,158 @@
+.page {
+  min-height: 100vh;
+  padding: 34rpx 30rpx 54rpx;
+  background: #f7f8fb;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 36rpx 30rpx 34rpx;
+  border: 1rpx solid rgba(30, 58, 95, 0.06);
+  border-radius: 32rpx;
+  background: linear-gradient(145deg, #ffffff 0%, #eef4ff 100%);
+  box-shadow: 0 18rpx 48rpx rgba(31, 50, 74, 0.08);
+}
+
+.hero::after {
+  position: absolute;
+  right: -64rpx;
+  top: -70rpx;
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+  content: "";
+}
+
+.brandLogo {
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 24rpx;
+  border-radius: 28rpx;
+}
+
+.eyebrow {
+  display: block;
+  color: #2563eb;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.title {
+  display: block;
+  margin-top: 8rpx;
+  color: #172033;
+  font-size: 50rpx;
+  font-weight: 780;
+  line-height: 1.2;
+}
+
+.subtitle {
+  display: block;
+  max-width: 560rpx;
+  margin-top: 16rpx;
+  color: #4b5563;
+  font-size: 28rpx;
+  line-height: 1.55;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18rpx;
+  margin: 34rpx 4rpx 18rpx;
+}
+
+.sectionTitle {
+  color: #172033;
+  font-size: 34rpx;
+  font-weight: 760;
+}
+
+.toolList {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.toolCard {
+  padding: 26rpx;
+  border: 1rpx solid rgba(30, 58, 95, 0.06);
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 14rpx 36rpx rgba(31, 50, 74, 0.06);
+}
+
+.toolTop {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.toolIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 24rpx;
+  background: #eef4ff;
+  color: #2563eb;
+  font-size: 34rpx;
+  font-weight: 760;
+}
+
+.toolText {
+  flex: 1;
+  min-width: 0;
+}
+
+.toolTitle {
+  display: block;
+  color: #172033;
+  font-size: 31rpx;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.toolSubtitle {
+  display: block;
+  margin-top: 6rpx;
+  color: #6b7280;
+  font-size: 25rpx;
+  line-height: 1.45;
+}
+
+.toolFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+  margin-top: 22rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #f0f2f6;
+}
+
+.toolMeta {
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.toolStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 112rpx;
+  height: 48rpx;
+  padding: 0 18rpx;
+  border-radius: 999rpx;
+  background: #eef4ff;
+  color: #2563eb;
+  font-size: 23rpx;
+  font-weight: 650;
+  line-height: 1;
+}

@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 微信开发者工具
+.project
+.miniprogram/
+
+# 依赖
+node_modules/
+
+# 私有配置（包含 AppID）
+project.private.config.json
+project.config.json
+
+# IDE 配置
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 日志
+*.log
+npm-debug.log*
+
+# 临时文件
+*.tmp
+*.temp

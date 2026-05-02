@@ -1,0 +1,53 @@
+<view class="page">
+  <view class="header">
+    <text class="eyebrow">知闻药观</text>
+    <text class="title">CTCAE v6.0 检索</text>
+    <text class="subtitle">中英文术语、定义、导航说明、变更内容与 Grade 1-5 对照</text>
+  </view>
+
+  <view class="disclaimer">
+    本工具仅用于 CTCAE v6.0 不良事件分级检索、学习与工作参考，不构成医学诊断、治疗建议或临床决策依据。
+  </view>
+
+  <view class="searchPanel">
+    <input
+      class="searchInput"
+      value="{{query}}"
+      placeholder="输入中文、英文、MedDRA code、SOC 或指标关键词"
+      confirm-type="search"
+      bindinput="onInput"
+      bindconfirm="onSearch"
+    />
+    <button class="searchButton" bindtap="onSearch">搜索</button>
+  </view>
+
+  <view class="examplesBlock">
+    <text class="examplesLabel">示例搜索</text>
+    <view class="examples">
+      <block wx:for="{{examples}}" wx:key="*this">
+        <view class="exampleButton" data-query="{{item}}" bindtap="useExample">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{searched}}" class="summary">
+    <text wx:if="{{results.length > 0}}">找到 {{results.length}} 条相关结果</text>
+    <text wx:else>没有找到结果，可以换一个关键词试试</text>
+  </view>
+
+  <view class="results">
+    <block wx:for="{{results}}" wx:key="code">
+      <view class="resultItem" data-code="{{item.code}}" bindtap="openDetail">
+        <view class="resultTop">
+          <text class="termZh">{{item.termZh}}</text>
+          <text class="code">{{item.code}}</text>
+        </view>
+        <text class="termEn">{{item.termEn}}</text>
+        <view class="socLine">
+          <text>{{item.socZh}}</text>
+          <text class="socEn">{{item.socEn}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

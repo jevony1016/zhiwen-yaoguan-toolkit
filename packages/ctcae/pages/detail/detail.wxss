@@ -1,0 +1,139 @@
+.page {
+  padding: 28rpx 28rpx 48rpx;
+}
+
+.section {
+  margin-bottom: 20rpx;
+  padding: 28rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.04);
+  border-radius: 22rpx;
+  background: #ffffff;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.05);
+}
+
+.label {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #86868b;
+  font-size: 23rpx;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.code {
+  display: inline-block;
+  margin-bottom: 14rpx;
+  padding: 6rpx 14rpx;
+  border-radius: 999rpx;
+  background: rgba(0, 122, 255, 0.1);
+  color: #007aff;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.termZh {
+  display: block;
+  color: #1d1d1f;
+  font-size: 38rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.termEn {
+  display: block;
+  margin-top: 8rpx;
+  color: #3a3a3c;
+  font-size: 29rpx;
+  line-height: 1.45;
+}
+
+.socZh {
+  display: block;
+  color: #1d1d1f;
+  font-size: 30rpx;
+  line-height: 1.45;
+}
+
+.socEn {
+  display: block;
+  margin-top: 6rpx;
+  color: #6e6e73;
+  font-size: 26rpx;
+  line-height: 1.45;
+}
+
+.gradeTitle {
+  margin: 30rpx 0 16rpx;
+  color: #1d1d1f;
+  font-size: 32rpx;
+  font-weight: 750;
+}
+
+.gradeItem {
+  margin-bottom: 18rpx;
+  padding: 26rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.04);
+  border-radius: 22rpx;
+  background: #ffffff;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.045);
+}
+
+.gradeHeader {
+  margin-bottom: 14rpx;
+  color: #007aff;
+  font-size: 28rpx;
+  font-weight: 750;
+}
+
+.gradeZh {
+  display: block;
+  color: #1d1d1f;
+  font-size: 28rpx;
+  line-height: 1.55;
+}
+
+.gradeEn {
+  display: block;
+  margin-top: 10rpx;
+  color: #6e6e73;
+  font-size: 25rpx;
+  line-height: 1.55;
+}
+
+.empty {
+  color: #6e6e73;
+  font-size: 28rpx;
+}
+
+.infoBlock {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f2;
+}
+
+.infoBlock.last {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.infoTitle {
+  display: block;
+  margin-bottom: 10rpx;
+  color: #007aff;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.infoZh {
+  display: block;
+  color: #1d1d1f;
+  font-size: 27rpx;
+  line-height: 1.55;
+}
+
+.infoEn {
+  display: block;
+  margin-top: 8rpx;
+  color: #6e6e73;
+  font-size: 24rpx;
+  line-height: 1.55;
+}

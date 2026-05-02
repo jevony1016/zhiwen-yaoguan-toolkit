@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "subPackages": [
+    {
+      "root": "packages/ctcae",
+      "name": "ctcae",
+      "pages": [
+        "pages/ctcae/index",
+        "pages/detail/detail"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTitleText": "知闻药观",
+    "navigationBarBackgroundColor": "#f7f8fb",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f8fb"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

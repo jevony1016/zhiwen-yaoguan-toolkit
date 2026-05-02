@@ -1,0 +1,51 @@
+<view class="page" wx:if="{{item}}">
+  <view class="disclaimer">
+    本工具仅用于 CTCAE v6.0 不良事件分级检索、学习与工作参考，不构成医学诊断、治疗建议或临床决策依据。
+  </view>
+
+  <view class="section">
+    <text class="label">MedDRA LLT Code</text>
+    <text class="code">{{item.code}}</text>
+    <text class="termZh">{{item.termZh}}</text>
+    <text class="termEn">{{item.termEn}}</text>
+  </view>
+
+  <view class="section">
+    <text class="label">SOC</text>
+    <text class="socZh">{{item.socZh}}</text>
+    <text class="socEn">{{item.socEn}}</text>
+  </view>
+
+  <view class="section">
+    <text class="label">标准说明</text>
+    <view class="infoBlock">
+      <text class="infoTitle">定义</text>
+      <text class="infoZh">{{item.definitionZh || "-"}}</text>
+      <text class="infoEn">{{item.definitionEn || "-"}}</text>
+    </view>
+    <view class="infoBlock">
+      <text class="infoTitle">导航说明</text>
+      <text class="infoZh">{{item.navigationalNoteZh || "-"}}</text>
+      <text class="infoEn">{{item.navigationalNoteEn || "-"}}</text>
+    </view>
+    <view class="infoBlock last">
+      <text class="infoTitle">CTCAE v6.0 变更</text>
+      <text class="infoZh">{{item.changeZh || "-"}}</text>
+      <text class="infoEn">{{item.changeEn || "-"}}</text>
+    </view>
+  </view>
+
+  <view class="gradeTitle">Grade 1-5 对照</view>
+
+  <block wx:for="{{item.grades}}" wx:key="level">
+    <view class="gradeItem">
+      <view class="gradeHeader">Grade {{item.level}}</view>
+      <text class="gradeZh">{{item.zh || "-"}}</text>
+      <text class="gradeEn">{{item.en || "-"}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="page empty" wx:else>
+  <text>没有找到该 CTCAE 条目</text>
+</view>
