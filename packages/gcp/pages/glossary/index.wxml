@@ -1,0 +1,78 @@
+<wxs module="utils">
+module.exports = {
+  formatAbbr: function(abbr) {
+    if (abbr.length > 3) {
+      var half = Math.ceil(abbr.length / 2);
+      return abbr.slice(0, half) + '\n' + abbr.slice(half);
+    }
+    return abbr;
+  }
+}
+</wxs>
+
+<view class="page">
+  <!-- 搜索头部 -->
+  <view class="searchHeader">
+    <view class="searchBar">
+      <text class="searchIcon">🔍</text>
+      <input
+        class="searchInput"
+        value="{{query}}"
+        placeholder="搜索缩略语或术语..."
+        confirm-type="search"
+        bindinput="onInput"
+        bindconfirm="onSearch"
+      />
+      <text class="searchBtn" bindtap="onSearch">搜索</text>
+    </view>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view class="categoryScroll" scroll-x="true">
+    <view class="categoryTags">
+      <text class="categoryTag {{activeCategory === '' ? 'active' : ''}}" data-category="" bindtap="selectCategory">全部</text>
+      <block wx:for="{{categories}}" wx:key="name">
+        <text class="categoryTag {{activeCategory === item.name ? 'active' : ''}}" data-category="{{item.name}}" bindtap="selectCategory">{{item.name}}</text>
+      </block>
+    </view>
+  </scroll-view>
+
+  <!-- 结果统计 -->
+  <view wx:if="{{searched}}" class="resultCount">
+    <text>找到 {{results.length}} 条结果</text>
+  </view>
+
+  <!-- 结果列表 -->
+  <view class="resultList">
+    <block wx:for="{{results}}" wx:key="abbr">
+      <view class="resultItem" data-abbr="{{item.abbr}}" bindtap="openDetail">
+        <view class="resultLeft">
+          <view class="abbrBadge">{{utils.formatAbbr(item.abbr)}}</view>
+        </view>
+        <view class="resultContent">
+          <view class="resultMain">
+            <text class="resultZh">{{item.fullZh}}</text>
+            <text class="resultEn">{{item.fullEn}}</text>
+          </view>
+          <view class="resultMeta">
+            <text class="resultCategory">{{item.category}}</text>
+            <text class="resultSource {{item.sourceType === '官方' ? 'official' : 'common'}}">{{item.sourceType}}</text>
+          </view>
+        </view>
+        <text class="resultArrow">›</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{searched && results.length === 0}}" class="emptyState">
+    <text class="emptyIcon">🔍</text>
+    <text class="emptyText">没有找到结果</text>
+    <text class="emptyHint">试试其他关键词</text>
+  </view>
+
+  <!-- 底部说明 -->
+  <view class="pageFooter">
+    <text class="footerNote">官方术语来源 ICH、FDA、EMA 等 | 行业术语仅供参考学习</text>
+  </view>
+</view>

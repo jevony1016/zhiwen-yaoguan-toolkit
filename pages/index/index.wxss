@@ -1,158 +1,280 @@
+/* 页面 */
 .page {
   min-height: 100vh;
-  padding: 34rpx 30rpx 54rpx;
-  background: #f7f8fb;
+  background: #f2f2f7;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 36rpx 30rpx 34rpx;
-  border: 1rpx solid rgba(30, 58, 95, 0.06);
-  border-radius: 32rpx;
-  background: linear-gradient(145deg, #ffffff 0%, #eef4ff 100%);
-  box-shadow: 0 18rpx 48rpx rgba(31, 50, 74, 0.08);
+/* 顶部 Logo 区域 */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96rpx 40rpx 56rpx;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2f7 100%);
 }
 
-.hero::after {
-  position: absolute;
-  right: -64rpx;
-  top: -70rpx;
-  width: 220rpx;
-  height: 220rpx;
-  border-radius: 50%;
-  background: rgba(37, 99, 235, 0.08);
-  content: "";
+.logoWrap {
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 40rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx;
 }
 
-.brandLogo {
-  display: block;
-  width: 120rpx;
-  height: 120rpx;
-  margin-bottom: 24rpx;
+.logo {
+  width: 100%;
+  height: 100%;
   border-radius: 28rpx;
-}
-
-.eyebrow {
-  display: block;
-  color: #2563eb;
-  font-size: 24rpx;
-  font-weight: 700;
 }
 
 .title {
-  display: block;
-  margin-top: 8rpx;
-  color: #172033;
-  font-size: 50rpx;
-  font-weight: 780;
-  line-height: 1.2;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1c1c1e;
+  margin-top: 28rpx;
+  letter-spacing: 2rpx;
 }
 
 .subtitle {
-  display: block;
-  max-width: 560rpx;
-  margin-top: 16rpx;
-  color: #4b5563;
-  font-size: 28rpx;
-  line-height: 1.55;
+  font-size: 26rpx;
+  color: #8e8e93;
+  margin-top: 10rpx;
 }
 
-.sectionHead {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 18rpx;
-  margin: 34rpx 4rpx 18rpx;
+/* 区块 */
+.section {
+  padding: 0 32rpx;
+  margin-bottom: 48rpx;
 }
 
 .sectionTitle {
-  color: #172033;
-  font-size: 34rpx;
-  font-weight: 760;
+  display: block;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #8e8e93;
+  text-transform: uppercase;
+  letter-spacing: 1.5rpx;
+  margin-bottom: 20rpx;
+  margin-left: 16rpx;
 }
 
+/* 工具列表 */
 .toolList {
-  display: flex;
-  flex-direction: column;
-  gap: 18rpx;
+  background: #ffffff;
+  border-radius: 32rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
 }
 
 .toolCard {
-  padding: 26rpx;
-  border: 1rpx solid rgba(30, 58, 95, 0.06);
-  border-radius: 28rpx;
-  background: #ffffff;
-  box-shadow: 0 14rpx 36rpx rgba(31, 50, 74, 0.06);
-}
-
-.toolTop {
   display: flex;
   align-items: center;
-  gap: 20rpx;
+  padding: 28rpx 32rpx;
+  border-bottom: 1rpx solid #f2f2f7;
+  transition: background 0.2s;
+}
+
+.toolCard:last-child {
+  border-bottom: none;
+}
+
+.toolCard:active {
+  background: #f7f7f7;
+}
+
+/* 图标 */
+.toolIconWrap {
+  margin-right: 24rpx;
 }
 
 .toolIcon {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 78rpx;
-  height: 78rpx;
+  width: 96rpx;
+  height: 96rpx;
   border-radius: 24rpx;
-  background: #eef4ff;
-  color: #2563eb;
-  font-size: 34rpx;
-  font-weight: 760;
-}
-
-.toolText {
-  flex: 1;
-  min-width: 0;
-}
-
-.toolTitle {
-  display: block;
-  color: #172033;
-  font-size: 31rpx;
-  font-weight: 750;
-  line-height: 1.35;
-}
-
-.toolSubtitle {
-  display: block;
-  margin-top: 6rpx;
-  color: #6b7280;
-  font-size: 25rpx;
-  line-height: 1.45;
-}
-
-.toolFoot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18rpx;
-  margin-top: 22rpx;
-  padding-top: 20rpx;
-  border-top: 1rpx solid #f0f2f6;
-}
-
-.toolMeta {
-  color: #6b7280;
-  font-size: 24rpx;
-}
-
-.toolStatus {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 112rpx;
+}
+
+/* CTCAE 图标 - 柱状图风格 */
+.icon-ctcae {
+  background: linear-gradient(135deg, #34c759 0%, #30b350 100%);
+  box-shadow: 0 4rpx 16rpx rgba(52, 199, 89, 0.25);
+}
+
+.iconSymbol {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 14rpx;
   height: 48rpx;
-  padding: 0 18rpx;
-  border-radius: 999rpx;
-  background: #eef4ff;
-  color: #2563eb;
-  font-size: 23rpx;
-  font-weight: 650;
-  line-height: 1;
+}
+
+.iconBar {
+  width: 12rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6rpx;
+}
+
+.bar1 {
+  height: 22rpx;
+}
+
+.bar2 {
+  height: 34rpx;
+}
+
+.bar3 {
+  height: 48rpx;
+}
+
+/* 词典图标 - 书本风格 */
+.icon-glossary {
+  background: linear-gradient(135deg, #007aff 0%, #0056cc 100%);
+  box-shadow: 0 4rpx 16rpx rgba(0, 122, 255, 0.25);
+}
+
+.iconBook {
+  width: 48rpx;
+  height: 38rpx;
+  position: relative;
+}
+
+.bookSpine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10rpx;
+  height: 38rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3rpx;
+}
+
+.bookPage {
+  position: absolute;
+  left: 12rpx;
+  top: 3rpx;
+  width: 36rpx;
+  height: 32rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 3rpx;
+}
+
+/* 工具信息 */
+.toolInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolName {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1c1c1e;
+}
+
+.toolDesc {
+  font-size: 26rpx;
+  color: #8e8e93;
+  margin-top: 6rpx;
+}
+
+/* 工具元信息 */
+.toolMeta {
+  display: flex;
+  align-items: center;
+}
+
+.toolCount {
+  font-size: 26rpx;
+  color: #8e8e93;
+  margin-right: 12rpx;
+}
+
+.toolArrow {
+  font-size: 40rpx;
+  color: #c7c7cc;
+  font-weight: 500;
+}
+
+/* 关于卡片 */
+.aboutCard {
+  background: #ffffff;
+  border-radius: 32rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.aboutRow {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+}
+
+.aboutIconWrap {
+  margin-right: 24rpx;
+}
+
+.aboutIcon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #34c759 0%, #2db84a 100%);
+  box-shadow: 0 4rpx 16rpx rgba(52, 199, 89, 0.25);
+}
+
+.wechatEmoji {
+  font-size: 48rpx;
+}
+
+.aboutInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutLabel {
+  font-size: 26rpx;
+  color: #8e8e93;
+}
+
+.aboutValue {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-top: 6rpx;
+}
+
+/* 数据来源说明 */
+.sourceNote {
+  padding: 0 48rpx;
+  margin-bottom: 40rpx;
+}
+
+.sourceText {
+  display: block;
+  font-size: 24rpx;
+  color: #8e8e93;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* 底部 */
+.footer {
+  padding: 40rpx;
+  text-align: center;
+  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+.footerText {
+  font-size: 24rpx;
+  color: #c7c7cc;
 }

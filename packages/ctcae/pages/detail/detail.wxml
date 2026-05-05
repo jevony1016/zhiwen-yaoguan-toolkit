@@ -23,29 +23,30 @@
       <text class="infoZh">{{item.definitionZh || "-"}}</text>
       <text class="infoEn">{{item.definitionEn || "-"}}</text>
     </view>
-    <view class="infoBlock">
+    <view class="infoBlock" wx:if="{{item.navigationalNoteZh && item.navigationalNoteZh != '-'}}">
       <text class="infoTitle">导航说明</text>
       <text class="infoZh">{{item.navigationalNoteZh || "-"}}</text>
       <text class="infoEn">{{item.navigationalNoteEn || "-"}}</text>
     </view>
-    <view class="infoBlock last">
+    <view class="infoBlock last" wx:if="{{item.changeZh || item.changeEn}}">
       <text class="infoTitle">CTCAE v6.0 变更</text>
       <text class="infoZh">{{item.changeZh || "-"}}</text>
       <text class="infoEn">{{item.changeEn || "-"}}</text>
     </view>
   </view>
 
-  <view class="gradeTitle">Grade 1-5 对照</view>
-
-  <block wx:for="{{item.grades}}" wx:key="level">
-    <view class="gradeItem">
-      <view class="gradeHeader">Grade {{item.level}}</view>
-      <text class="gradeZh">{{item.zh || "-"}}</text>
-      <text class="gradeEn">{{item.en || "-"}}</text>
-    </view>
-  </block>
+  <view class="section">
+    <text class="label">分级标准</text>
+    <block wx:for="{{item.grades}}" wx:key="level">
+      <view class="gradeItem" wx:if="{{item.level < 5 || (item.zh && item.zh != '-')}}">
+        <view class="gradeHeader">Grade {{item.level}}</view>
+        <text class="gradeZh">{{item.zh || "-"}}</text>
+        <text class="gradeEn">{{item.en || "-"}}</text>
+      </view>
+    </block>
+  </view>
 </view>
 
 <view class="page empty" wx:else>
-  <text>没有找到该 CTCAE 条目</text>
+  <text class="emptyText">没有找到该 CTCAE 条目</text>
 </view>

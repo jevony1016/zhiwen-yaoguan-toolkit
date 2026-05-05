@@ -1,16 +1,32 @@
+/* 页面 */
 .page {
   padding: 28rpx 28rpx 48rpx;
+  min-height: 100vh;
 }
 
+/* 声明 */
+.disclaimer {
+  margin-bottom: 24rpx;
+  padding: 20rpx 24rpx;
+  border-radius: 22rpx;
+  background: rgba(0, 122, 255, 0.06);
+  border: 1rpx solid rgba(0, 122, 255, 0.12);
+  color: #6e6e73;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+/* Section 卡片 */
 .section {
   margin-bottom: 20rpx;
   padding: 28rpx;
   border: 1rpx solid rgba(0, 0, 0, 0.04);
-  border-radius: 22rpx;
+  border-radius: 28rpx;
   background: #ffffff;
-  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8rpx 28rpx rgba(0, 0, 0, 0.05);
 }
 
+/* 标签 */
 .label {
   display: block;
   margin-bottom: 10rpx;
@@ -18,19 +34,23 @@
   font-size: 23rpx;
   font-weight: 650;
   text-transform: uppercase;
+  letter-spacing: 1rpx;
 }
 
+/* Code 药丸 */
 .code {
   display: inline-block;
   margin-bottom: 14rpx;
-  padding: 6rpx 14rpx;
+  padding: 6rpx 16rpx;
   border-radius: 999rpx;
   background: rgba(0, 122, 255, 0.1);
   color: #007aff;
   font-size: 26rpx;
   font-weight: 700;
+  font-family: menlo, monospace;
 }
 
+/* 术语名称 */
 .termZh {
   display: block;
   color: #1d1d1f;
@@ -47,6 +67,7 @@
   line-height: 1.45;
 }
 
+/* SOC */
 .socZh {
   display: block;
   color: #1d1d1f;
@@ -62,49 +83,7 @@
   line-height: 1.45;
 }
 
-.gradeTitle {
-  margin: 30rpx 0 16rpx;
-  color: #1d1d1f;
-  font-size: 32rpx;
-  font-weight: 750;
-}
-
-.gradeItem {
-  margin-bottom: 18rpx;
-  padding: 26rpx;
-  border: 1rpx solid rgba(0, 0, 0, 0.04);
-  border-radius: 22rpx;
-  background: #ffffff;
-  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.045);
-}
-
-.gradeHeader {
-  margin-bottom: 14rpx;
-  color: #007aff;
-  font-size: 28rpx;
-  font-weight: 750;
-}
-
-.gradeZh {
-  display: block;
-  color: #1d1d1f;
-  font-size: 28rpx;
-  line-height: 1.55;
-}
-
-.gradeEn {
-  display: block;
-  margin-top: 10rpx;
-  color: #6e6e73;
-  font-size: 25rpx;
-  line-height: 1.55;
-}
-
-.empty {
-  color: #6e6e73;
-  font-size: 28rpx;
-}
-
+/* 信息块 */
 .infoBlock {
   padding: 20rpx 0;
   border-bottom: 1rpx solid #f0f0f2;
@@ -136,4 +115,49 @@
   color: #6e6e73;
   font-size: 24rpx;
   line-height: 1.55;
+}
+
+/* Grade 卡片 */
+.gradeItem {
+  margin-top: 18rpx;
+  padding: 24rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.04);
+  border-radius: 22rpx;
+  background: #f9f9fb;
+}
+
+.gradeItem:first-child {
+  margin-top: 16rpx;
+}
+
+.gradeHeader {
+  margin-bottom: 14rpx;
+  color: #007aff;
+  font-size: 28rpx;
+  font-weight: 750;
+}
+
+.gradeZh {
+  display: block;
+  color: #1d1d1f;
+  font-size: 28rpx;
+  line-height: 1.55;
+}
+
+.gradeEn {
+  display: block;
+  margin-top: 10rpx;
+  color: #6e6e73;
+  font-size: 25rpx;
+  line-height: 1.55;
+}
+
+/* 空状态 */
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+  color: #6e6e73;
+  font-size: 28rpx;
 }

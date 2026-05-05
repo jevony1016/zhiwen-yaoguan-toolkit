@@ -1,53 +1,59 @@
 <view class="page">
-  <view class="header">
-    <text class="eyebrow">知闻药观</text>
-    <text class="title">CTCAE v6.0 检索</text>
-    <text class="subtitle">中英文术语、定义、导航说明、变更内容与 Grade 1-5 对照</text>
-  </view>
-
-  <view class="disclaimer">
-    本工具仅用于 CTCAE v6.0 不良事件分级检索、学习与工作参考，不构成医学诊断、治疗建议或临床决策依据。
-  </view>
-
-  <view class="searchPanel">
-    <input
-      class="searchInput"
-      value="{{query}}"
-      placeholder="输入中文、英文、MedDRA code、SOC 或指标关键词"
-      confirm-type="search"
-      bindinput="onInput"
-      bindconfirm="onSearch"
-    />
-    <button class="searchButton" bindtap="onSearch">搜索</button>
-  </view>
-
-  <view class="examplesBlock">
-    <text class="examplesLabel">示例搜索</text>
-    <view class="examples">
-      <block wx:for="{{examples}}" wx:key="*this">
-        <view class="exampleButton" data-query="{{item}}" bindtap="useExample">{{item}}</view>
-      </block>
+  <!-- 搜索头部 -->
+  <view class="searchHeader">
+    <view class="searchBar">
+      <text class="searchIcon">🔍</text>
+      <input
+        class="searchInput"
+        value="{{query}}"
+        placeholder="搜索术语、MedDRA code、SOC..."
+        confirm-type="search"
+        bindinput="onInput"
+        bindconfirm="onSearch"
+      />
+      <text class="searchBtn" bindtap="onSearch">搜索</text>
     </view>
   </view>
 
-  <view wx:if="{{searched}}" class="summary">
-    <text wx:if="{{results.length > 0}}">找到 {{results.length}} 条相关结果</text>
-    <text wx:else>没有找到结果，可以换一个关键词试试</text>
+  <!-- 快捷标签 -->
+  <view class="quickTags">
+    <text class="quickTag" data-query="贫血" bindtap="useExample">贫血</text>
+    <text class="quickTag" data-query="ALT" bindtap="useExample">ALT</text>
+    <text class="quickTag" data-query="血小板" bindtap="useExample">血小板</text>
+    <text class="quickTag" data-query="恶心" bindtap="useExample">恶心</text>
   </view>
 
-  <view class="results">
+  <!-- 结果统计 -->
+  <view wx:if="{{searched}}" class="resultCount">
+    <text>找到 {{results.length}} 条结果</text>
+  </view>
+
+  <!-- 结果列表 -->
+  <view class="resultList">
     <block wx:for="{{results}}" wx:key="code">
       <view class="resultItem" data-code="{{item.code}}" bindtap="openDetail">
-        <view class="resultTop">
-          <text class="termZh">{{item.termZh}}</text>
-          <text class="code">{{item.code}}</text>
+        <view class="resultMain">
+          <text class="resultName">{{item.termZh}}</text>
+          <text class="resultNameEn">{{item.termEn}}</text>
         </view>
-        <text class="termEn">{{item.termEn}}</text>
-        <view class="socLine">
-          <text>{{item.socZh}}</text>
-          <text class="socEn">{{item.socEn}}</text>
+        <view class="resultMeta">
+          <text class="resultCode">{{item.code}}</text>
+          <text class="resultSoc">{{item.socZh}}</text>
         </view>
+        <text class="resultArrow">›</text>
       </view>
     </block>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{searched && results.length === 0}}" class="emptyState">
+    <text class="emptyIcon">🔍</text>
+    <text class="emptyText">没有找到结果</text>
+    <text class="emptyHint">试试其他关键词</text>
+  </view>
+
+  <!-- 底部说明 -->
+  <view class="pageFooter">
+    <text class="footerNote">数据来源：CTCAE v6.0 官方标准</text>
   </view>
 </view>

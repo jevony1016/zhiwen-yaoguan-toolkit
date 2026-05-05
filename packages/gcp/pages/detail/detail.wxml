@@ -1,0 +1,50 @@
+<view class="page" wx:if="{{item}}">
+  <!-- 顶部标题卡 -->
+  <view class="headerCard">
+    <view class="abbrLarge">{{item.abbr}}</view>
+    <text class="fullZh">{{item.fullZh}}</text>
+    <text class="fullEn">{{item.fullEn}}</text>
+    <view class="headerTags">
+      <text class="headerTag">{{item.category}}</text>
+      <text class="headerTag {{item.sourceType === '官方' ? 'tagOfficial' : 'tagCommon'}}">{{item.sourceType}}</text>
+    </view>
+  </view>
+
+  <!-- 定义 -->
+  <view class="section">
+    <text class="sectionTitle">定义</text>
+    <view class="definitionCard">
+      <view class="definitionItem">
+        <text class="defLabel">中文</text>
+        <text class="defText">{{item.definitionZh}}</text>
+      </view>
+      <view class="definitionDivider"></view>
+      <view class="definitionItem">
+        <text class="defLabel">English</text>
+        <text class="defText">{{item.definitionEn}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 来源 -->
+  <view class="section">
+    <text class="sectionTitle">来源</text>
+    <view class="sourceCard">
+      <text class="sourceText">{{item.source}}</text>
+    </view>
+  </view>
+
+  <!-- 相关术语 -->
+  <view class="section" wx:if="{{related.length > 0}}">
+    <text class="sectionTitle">相关术语</text>
+    <view class="relatedTags">
+      <block wx:for="{{related}}" wx:key="abbr">
+        <view class="relatedTag" data-abbr="{{item.abbr}}" bindtap="openRelated">{{item.abbr}}</view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="page empty" wx:else>
+  <text class="emptyText">未找到该术语</text>
+</view>

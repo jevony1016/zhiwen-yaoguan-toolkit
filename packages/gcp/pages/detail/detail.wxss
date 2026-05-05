@@ -1,0 +1,175 @@
+/* 页面 */
+.page {
+  min-height: 100vh;
+  background: #f2f2f7;
+  padding: 24rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+}
+
+/* 顶部标题卡 */
+.headerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56rpx 32rpx;
+  background: #ffffff;
+  border-radius: 32rpx;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.abbrLarge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180rpx;
+  height: 110rpx;
+  padding: 0 36rpx;
+  background: #007aff;
+  border-radius: 32rpx;
+  color: #ffffff;
+  font-size: 52rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 122, 255, 0.25);
+}
+
+.fullZh {
+  display: block;
+  color: #000000;
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-top: 28rpx;
+  text-align: center;
+}
+
+.fullEn {
+  display: block;
+  color: #8e8e93;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  text-align: center;
+}
+
+.headerTags {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.headerTag {
+  padding: 12rpx 24rpx;
+  background: #f2f2f7;
+  border-radius: 12rpx;
+  color: #8e8e93;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.headerTag.tagOfficial {
+  background: rgba(52, 199, 89, 0.12);
+  color: #34c759;
+}
+
+.headerTag.tagCommon {
+  background: rgba(255, 149, 0, 0.12);
+  color: #ff9500;
+}
+
+/* Section */
+.section {
+  margin-top: 24rpx;
+}
+
+.sectionTitle {
+  display: block;
+  color: #8e8e93;
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+  margin-left: 8rpx;
+  text-transform: uppercase;
+  letter-spacing: 1.5rpx;
+}
+
+/* 定义卡片 */
+.definitionCard {
+  background: #ffffff;
+  border-radius: 32rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.definitionItem {
+  padding: 32rpx;
+}
+
+.defLabel {
+  display: block;
+  color: #007aff;
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-bottom: 14rpx;
+}
+
+.defText {
+  display: block;
+  color: #000000;
+  font-size: 32rpx;
+  line-height: 1.7;
+}
+
+.definitionDivider {
+  height: 1rpx;
+  background: #f2f2f7;
+  margin: 0 32rpx;
+}
+
+/* 来源卡片 */
+.sourceCard {
+  padding: 32rpx;
+  background: #ffffff;
+  border-radius: 32rpx;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.sourceText {
+  color: #000000;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+/* 相关术语 - 小圆块 */
+.relatedTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.relatedTag {
+  padding: 16rpx 32rpx;
+  background: #007aff;
+  border-radius: 999rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.25);
+  transition: transform 0.2s;
+}
+
+.relatedTag:active {
+  transform: scale(0.95);
+}
+
+/* 空状态 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+}
+
+.emptyText {
+  color: #8e8e93;
+  font-size: 36rpx;
+}

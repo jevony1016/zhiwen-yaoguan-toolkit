@@ -10,6 +10,14 @@
         "pages/ctcae/index",
         "pages/detail/detail"
       ]
+    },
+    {
+      "root": "packages/gcp",
+      "name": "gcp",
+      "pages": [
+        "pages/glossary/index",
+        "pages/detail/detail"
+      ]
     }
   ],
   "window": {
