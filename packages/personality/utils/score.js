@@ -122,7 +122,7 @@ function scoreSbti(answers) {
 
   return {
     kind: "sbti",
-    title: "医药人 SBTI",
+    title: "临研人 SBTI",
     type: top.code,
     name: top.name,
     summary: top.tagline,
@@ -135,7 +135,7 @@ function scoreSbti(answers) {
       { title: "温柔提醒", text: top.advice },
       { title: "传播文案", text: `把这个结果发给项目组，看看谁才是真正的「${top.name}」。` }
     ],
-    disclaimer: "医药人 SBTI 是面向临床研究和医药行业场景的轻量状态测试，仅供娱乐、社交破冰和自我观察。"
+    disclaimer: "临研人 SBTI 是面向临床研究场景的轻量状态测试，仅供娱乐、社交破冰和自我观察。"
   };
 }
 

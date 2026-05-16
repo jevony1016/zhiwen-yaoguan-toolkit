@@ -77,7 +77,7 @@
 
   <view class="bottomActions">
     <button class="bottomBtn primary" bindtap="retest">重新测试</button>
-    <button class="bottomBtn secondary" bindtap="switchTest">{{type === 'sbti' ? '测 16 型人格' : '测医药人 SBTI'}}</button>
+    <button class="bottomBtn secondary" bindtap="switchTest">{{type === 'sbti' ? '测 16 型人格' : '测临研人 SBTI'}}</button>
   </view>
 
   <view class="homeLink" bindtap="backHome">返回人格小测首页</view>

@@ -11,9 +11,9 @@ Page({
       },
       {
         id: "sbti",
-        title: "医药人 SBTI",
+        title: "临研人 SBTI",
         subtitle: "行业状态码",
-        desc: "把临床研究和医药行业日常，翻译成一个适合截图分享的项目组隐藏角色。",
+        desc: "把临床研究日常，翻译成一个适合截图分享的项目组隐藏角色。",
         meta: "约 3 分钟",
         accent: "green"
       }

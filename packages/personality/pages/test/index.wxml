@@ -11,11 +11,13 @@
   <view class="questionCard">
     <text class="questionIndex">第 {{current + 1}} 题</text>
     <view class="choicePair">
-      <view class="choiceSide leftSide">
+      <view class="choiceLabel">上方描述</view>
+      <view class="choiceSide topSide">
         <text>{{currentQuestion.left}}</text>
       </view>
       <view class="divider">或</view>
-      <view class="choiceSide rightSide">
+      <view class="choiceLabel">下方描述</view>
+      <view class="choiceSide bottomSide">
         <text>{{currentQuestion.right}}</text>
       </view>
     </view>

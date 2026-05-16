@@ -3,12 +3,18 @@
     <view class="heroVisual">
       <view class="orbit orbitA"></view>
       <view class="orbit orbitB"></view>
-      <view class="centerMark">ZW</view>
+      <view class="centerMark">
+        <view class="markDot markTop"></view>
+        <view class="markDot markLeft"></view>
+        <view class="markDot markRight"></view>
+        <view class="markLine lineA"></view>
+        <view class="markLine lineB"></view>
+      </view>
       <view class="spark sparkA"></view>
       <view class="spark sparkB"></view>
     </view>
     <text class="heroTitle">人格小测</text>
-    <text class="heroDesc">16 型人格走专业分析路线，医药人 SBTI 负责好玩、共鸣和截图传播。</text>
+    <text class="heroDesc">16 型人格走专业分析路线，临研人 SBTI 负责好玩、共鸣和截图传播。</text>
   </view>
 
   <view class="section">

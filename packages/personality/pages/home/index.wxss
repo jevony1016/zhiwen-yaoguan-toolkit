@@ -50,13 +50,65 @@
   height: 96rpx;
   border-radius: 28rpx;
   background: linear-gradient(135deg, #5856d6 0%, #34c759 100%);
-  color: #ffffff;
-  font-size: 30rpx;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0 14rpx 36rpx rgba(88, 86, 214, 0.24);
+  overflow: hidden;
+}
+
+.centerMark::after {
+  content: "";
+  position: absolute;
+  right: -18rpx;
+  top: -18rpx;
+  width: 58rpx;
+  height: 58rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.markDot {
+  position: absolute;
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 2;
+}
+
+.markTop {
+  left: 39rpx;
+  top: 20rpx;
+}
+
+.markLeft {
+  left: 24rpx;
+  bottom: 24rpx;
+}
+
+.markRight {
+  right: 22rpx;
+  bottom: 28rpx;
+}
+
+.markLine {
+  position: absolute;
+  height: 5rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.68);
+  transform-origin: left center;
+}
+
+.lineA {
+  left: 35rpx;
+  top: 42rpx;
+  width: 36rpx;
+  transform: rotate(42deg);
+}
+
+.lineB {
+  left: 34rpx;
+  top: 42rpx;
+  width: 34rpx;
+  transform: rotate(128deg);
 }
 
 .spark {

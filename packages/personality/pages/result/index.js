@@ -100,11 +100,7 @@ Page({
     ctx.setFillStyle(accent);
     roundRect(ctx, 86, 88, 112, 112, 30);
     ctx.fill();
-    ctx.setFillStyle("#ffffff");
-    ctx.setFontSize(32);
-    ctx.setTextAlign("center");
-    ctx.setTextBaseline("middle");
-    ctx.fillText("ZW", 142, 144);
+    drawShareMark(ctx, 86, 88, 112, accent);
 
     ctx.setTextAlign("left");
     ctx.setTextBaseline("normal");
@@ -213,6 +209,38 @@ function roundRect(ctx, x, y, width, height, radius) {
   ctx.lineTo(x, y + radius);
   ctx.quadraticCurveTo(x, y, x + radius, y);
   ctx.closePath();
+}
+
+function drawShareMark(ctx, x, y, size, accent) {
+  ctx.setFillStyle(accent);
+  roundRect(ctx, x, y, size, size, 30);
+  ctx.fill();
+
+  ctx.setFillStyle("rgba(255,255,255,0.18)");
+  ctx.beginPath();
+  ctx.arc(x + size - 16, y + 18, 34, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.setStrokeStyle("rgba(255,255,255,0.72)");
+  ctx.setLineWidth(5);
+  ctx.setLineCap("round");
+  ctx.beginPath();
+  ctx.moveTo(x + 56, y + 38);
+  ctx.lineTo(x + 36, y + 78);
+  ctx.moveTo(x + 56, y + 38);
+  ctx.lineTo(x + 82, y + 74);
+  ctx.stroke();
+
+  [
+    [x + 56, y + 34],
+    [x + 34, y + 80],
+    [x + 84, y + 76]
+  ].forEach((point) => {
+    ctx.setFillStyle("#ffffff");
+    ctx.beginPath();
+    ctx.arc(point[0], point[1], 10, 0, Math.PI * 2);
+    ctx.fill();
+  });
 }
 
 function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
