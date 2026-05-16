@@ -48,9 +48,10 @@ function scoreMbti(answers) {
     name: profile.name,
     summary: profile.summary,
     keywords: profile.keywords,
+    officialLinks: mbti.officialLinks,
     dimensions,
     sections: buildMbtiSections(type, dimensions),
-    disclaimer: "本结果是基于人格偏好模型的自我观察工具，不等同于官方 MBTI 测评，也不构成心理诊断。"
+    disclaimer: "本测试为 16 型人格偏好自测，题目和报告为原创整理，不等同于官方 MBTI 测评，也不构成心理诊断。MBTI 及 Myers-Briggs Type Indicator 是相关权利方的商标；如需正式评估，请访问官方渠道。"
   };
 }
 
@@ -65,6 +66,7 @@ function buildMbtiDimension(key, left, right, poles) {
     key,
     left,
     right,
+    label: mbti.dimensionCopy[key].label,
     pole,
     percent,
     copy: mbti.dimensionCopy[key][pole]
@@ -73,18 +75,24 @@ function buildMbtiDimension(key, left, right, poles) {
 
 function buildMbtiSections(type, dimensions) {
   const poleSet = type.split("");
-  const energy = poleSet[0] === "E" ? "你更适合在讨论、反馈和协作中校准方向。" : "你更适合先独立沉淀，再输出高质量判断。";
-  const info = poleSet[1] === "S" ? "你处理信息时重视事实、细节和可验证材料。" : "你处理信息时重视模式、趋势和长期可能性。";
-  const decision = poleSet[2] === "T" ? "你做判断时倾向于保持逻辑一致和标准清晰。" : "你做判断时倾向于照顾处境、关系和人的接受度。";
-  const rhythm = poleSet[3] === "J" ? "你更喜欢明确计划和收敛路径，完成感会给你稳定感。" : "你更喜欢保留弹性和探索空间，变化会激发你的适应力。";
+  const profile = mbti.typeProfiles[type];
+  const energy = poleSet[0] === "E" ? "你的心理能量多半来自互动、表达和外部反馈。你倾向于在交流中整理想法，也更容易被现场氛围带动。" : "你的心理能量多半来自独处、沉淀和内部梳理。你倾向于先在心里形成结构，再选择合适时机表达。";
+  const info = poleSet[1] === "S" ? "你处理信息时重视事实、细节、经验和可验证材料。你通常会先确认现实条件，再判断下一步。" : "你处理信息时重视模式、趋势、象征意义和未来可能。你通常会先理解整体方向，再回头补充细节。";
+  const decision = poleSet[2] === "T" ? "你做判断时倾向于保持逻辑一致、原则清晰和标准公平。你希望结论经得起推敲，而不是只让人舒服。" : "你做判断时倾向于照顾人的处境、感受和关系影响。你希望结论能被人理解，也能保留关系里的温度。";
+  const rhythm = poleSet[3] === "J" ? "你更喜欢计划、收敛、完成感和可预期秩序。明确的目标与边界会让你更稳定。" : "你更喜欢弹性、探索、开放选项和情境适应。保留变化空间会让你更自然。";
   const strongest = dimensions.slice().sort((a, b) => b.percent - a.percent)[0];
+  const balanced = dimensions.filter((item) => item.percent <= 60);
+  const strongestCopy = strongest.percent >= 75 ? `你最明显的偏好是 ${strongest.label} 中的 ${strongest.pole}，这往往是你压力下最先调用的默认策略。` : "你的偏好强度整体不算极端，说明你可能会根据场景切换不同策略。";
 
   return [
-    { title: "核心画像", text: `${energy}${info}${decision}${rhythm}` },
-    { title: "工作协作", text: poleSet[3] === "J" ? "你适合负责计划、交付、流程和质量边界。与更开放的人协作时，提前约定变更窗口会更顺。" : "你适合处理变化、探索方案和现场调整。与更计划型的人协作时，主动同步阶段性结论会更稳。" },
-    { title: "沟通方式", text: poleSet[0] === "E" ? "你可以通过讨论快速推进共识，但重要结论最好落到文字，避免信息在热烈互动后散掉。" : "你表达前会先整理结构。关键场合可以提前准备三句话结论，让你的判断更容易被看见。" },
-    { title: "压力反应", text: strongest.percent >= 75 ? `你的 ${strongest.pole} 倾向较明显，压力下可能更依赖这一侧的熟悉策略。适度使用相反偏好，可以帮你避免过度用力。` : "你的部分维度比较均衡，压力下可能会根据场景切换策略。优势是灵活，挑战是别让自己长期处在摇摆里。" },
-    { title: "成长建议", text: "把人格类型当作观察语言，而不是身份标签。真正有用的是识别自己的默认反应，并在重要关系和复杂任务里多一个可选择的动作。" }
+    { title: "类型概览", text: `${profile.summary}${energy}${info}${decision}${rhythm}` },
+    { title: "核心优势", text: profile.strengths },
+    { title: "潜在盲区", text: profile.blindspots },
+    { title: "沟通风格", text: poleSet[0] === "E" ? "你倾向于通过说出来推动理解，适合开放讨论和即时反馈。需要注意的是，别人可能还没有跟上你的表达速度，重要结论最好沉淀成清楚文字。" : "你倾向于先观察和整理，再给出相对完整的表达。需要注意的是，如果你沉默太久，别人可能误以为你没有想法。" },
+    { title: "学习与工作方式", text: poleSet[3] === "J" ? "你适合有目标、有节奏、有交付定义的任务。明确边界能提升效率；面对探索型任务时，可以先设置一个小范围试验，而不是一次性追求完全确定。" : "你适合需要探索、应变和整合多种可能的任务。自由度能激发创造力；面对长期任务时，可以设置轻量节点，避免灵感被截止时间追着跑。" },
+    { title: "压力反应", text: `${strongestCopy}${balanced.length ? ` 你较均衡的维度是：${balanced.map((item) => item.label).join("、")}，这些地方可能既是弹性来源，也是容易摇摆的地方。` : ""}` },
+    { title: "成长建议", text: profile.growth },
+    { title: "如何使用这个结果", text: "人格类型不是能力上限，也不是固定标签。更好的用法是：识别自己的默认偏好，理解别人为什么和你不同，并在关键情境里多一个可选择的反应。" }
   ];
 }
 

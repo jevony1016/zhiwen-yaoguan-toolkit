@@ -193,6 +193,8 @@
 }
 
 .sharePreview {
+  position: relative;
+  overflow: hidden;
   min-height: 260rpx;
   border-radius: 28rpx;
   padding: 34rpx;
@@ -202,8 +204,23 @@
   background: linear-gradient(135deg, rgba(88, 86, 214, 0.14), rgba(0, 122, 255, 0.08));
 }
 
+.sharePreview::after {
+  content: "";
+  position: absolute;
+  right: -54rpx;
+  top: -54rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: rgba(88, 86, 214, 0.12);
+}
+
 .sharePreview.sbti {
   background: linear-gradient(135deg, rgba(52, 199, 89, 0.18), rgba(0, 122, 255, 0.08));
+}
+
+.sharePreview.sbti::after {
+  background: rgba(52, 199, 89, 0.16);
 }
 
 .shareType {
@@ -267,6 +284,52 @@
   margin: 30rpx 18rpx 0;
 }
 
+.officialCard {
+  background: #ffffff;
+  border-radius: 32rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.officialRow {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 1rpx solid #f2f2f7;
+}
+
+.officialRow:last-child {
+  border-bottom: none;
+}
+
+.officialInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.officialLabel {
+  display: block;
+  color: #1c1c1e;
+  font-size: 30rpx;
+  font-weight: 750;
+}
+
+.officialUrl {
+  display: block;
+  color: #8e8e93;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  word-break: break-all;
+}
+
+.officialAction {
+  flex-shrink: 0;
+  color: #007aff;
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-left: 22rpx;
+}
+
 .bottomActions {
   display: flex;
   gap: 18rpx;
@@ -310,5 +373,5 @@
   left: -9999rpx;
   top: -9999rpx;
   width: 750px;
-  height: 1040px;
+  height: 1500px;
 }

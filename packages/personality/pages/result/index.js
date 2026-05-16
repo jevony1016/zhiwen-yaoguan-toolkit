@@ -65,17 +65,36 @@ Page({
     });
   },
 
+  copyOfficialLink(event) {
+    const url = event.currentTarget.dataset.url;
+    wx.setClipboardData({
+      data: url,
+      success: () => wx.showToast({ title: "官网链接已复制", icon: "success" })
+    });
+  },
+
   drawShareCard(done) {
     const result = this.data.result;
     const ctx = wx.createCanvasContext("shareCanvas", this);
     const width = 750;
-    const height = 1040;
+    const height = 1500;
     const accent = this.data.type === "sbti" ? "#34c759" : "#5856d6";
+    const softAccent = this.data.type === "sbti" ? "#e8f8ee" : "#eeeeff";
 
     ctx.setFillStyle("#f2f2f7");
     ctx.fillRect(0, 0, width, height);
+
+    ctx.setFillStyle(softAccent);
+    ctx.beginPath();
+    ctx.arc(620, 130, 120, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.setFillStyle(this.data.type === "sbti" ? "#e7f2ff" : "#eaf8f0");
+    ctx.beginPath();
+    ctx.arc(116, 1340, 150, 0, Math.PI * 2);
+    ctx.fill();
+
     ctx.setFillStyle("#ffffff");
-    roundRect(ctx, 46, 46, 658, 948, 36);
+    roundRect(ctx, 46, 46, 658, 1408, 36);
     ctx.fill();
 
     ctx.setFillStyle(accent);
@@ -97,53 +116,65 @@ Page({
     ctx.fillText(result.type, 224, 178);
 
     ctx.setFillStyle("#1c1c1e");
-    ctx.setFontSize(54);
-    wrapText(ctx, result.name, 86, 282, 590, 64, 2);
+    ctx.setFontSize(result.name.length >= 8 ? 46 : 54);
+    const nameBottom = wrapText(ctx, result.name, 86, 282, 590, 60, 2);
 
     ctx.setFillStyle("#636366");
     ctx.setFontSize(30);
-    wrapText(ctx, result.summary, 86, 408, 580, 42, 3);
+    const summaryY = Math.max(390, nameBottom + 36);
+    const summaryBottom = wrapText(ctx, result.summary, 86, summaryY, 580, 42, 3);
 
     const keywords = result.keywords || [];
     keywords.forEach((word, index) => {
-      const x = 86 + index * 184;
+      const x = 86 + index * 182;
+      const y = summaryBottom + 38;
       ctx.setFillStyle(index === 0 ? accent : "#f2f2f7");
-      roundRect(ctx, x, 538, 154, 54, 18);
+      roundRect(ctx, x, y, 150, 54, 18);
       ctx.fill();
       ctx.setFillStyle(index === 0 ? "#ffffff" : "#1c1c1e");
       ctx.setFontSize(24);
       ctx.setTextAlign("center");
       ctx.setTextBaseline("middle");
-      ctx.fillText(word, x + 77, 565);
+      ctx.fillText(word, x + 75, y + 27);
     });
 
     ctx.setTextAlign("left");
     ctx.setTextBaseline("normal");
     ctx.setFillStyle("#1c1c1e");
     ctx.setFontSize(30);
-    ctx.fillText("维度画像", 86, 660);
+    const dimensionTitleY = summaryBottom + 138;
+    ctx.fillText("维度画像", 86, dimensionTitleY);
 
     result.dimensions.slice(0, 6).forEach((item, index) => {
-      const y = 706 + index * 48;
-      const label = item.label || `${item.left}/${item.right}`;
-      const valueText = item.pole ? `${item.pole} ${item.percent}%` : `${item.percent}%`;
+      const y = dimensionTitleY + 54 + index * 58;
+      const label = item.displayLabel || item.label || `${item.left}/${item.right}`;
+      const valueText = item.displayValueShort || item.displayValue || (item.pole ? `${item.pole} ${item.percent}%` : `${item.percent}%`);
       ctx.setFillStyle("#636366");
       ctx.setFontSize(24);
       ctx.fillText(label, 86, y);
       ctx.setFillStyle("#e5e5ea");
-      roundRect(ctx, 236, y - 22, 330, 18, 9);
+      roundRect(ctx, 236, y - 21, 296, 18, 9);
       ctx.fill();
       ctx.setFillStyle(accent);
-      roundRect(ctx, 236, y - 22, Math.max(24, 330 * item.percent / 100), 18, 9);
+      roundRect(ctx, 236, y - 21, Math.max(22, 296 * item.percent / 100), 18, 9);
       ctx.fill();
       ctx.setFillStyle("#8e8e93");
       ctx.setFontSize(22);
-      ctx.fillText(valueText, 586, y);
+      ctx.fillText(valueText, 554, y);
     });
 
+    const firstSection = result.sections[0];
+    const textStart = dimensionTitleY + 54 + Math.min(result.dimensions.length, 6) * 58 + 52;
+    ctx.setFillStyle("#1c1c1e");
+    ctx.setFontSize(30);
+    ctx.fillText(firstSection.title, 86, textStart);
+    ctx.setFillStyle("#636366");
+    ctx.setFontSize(26);
+    wrapText(ctx, firstSection.text, 86, textStart + 44, 580, 38, 4);
+
     ctx.setFillStyle("#8e8e93");
-    ctx.setFontSize(24);
-    wrapText(ctx, "知闻药观小工具 · 本地测试 · 仅供学习娱乐和自我观察", 86, 946, 580, 34, 2);
+    ctx.setFontSize(22);
+    wrapText(ctx, "知闻药观小工具 · 本地测试 · 仅供学习娱乐和自我观察", 86, 1392, 580, 32, 2);
 
     ctx.draw(false, () => {
       wx.canvasToTempFilePath({
@@ -196,7 +227,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
       lineCount += 1;
       if (lineCount >= maxLines) {
         ctx.fillText(`${line.slice(0, Math.max(0, line.length - 1))}…`, x, y);
-        return;
+        return y + lineHeight;
       }
       ctx.fillText(line, x, y);
       line = chars[i];
@@ -206,6 +237,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
     }
   }
   ctx.fillText(line, x, y);
+  return y + lineHeight;
 }
 
 function prepareResult(result) {
@@ -214,7 +246,15 @@ function prepareResult(result) {
     dimensions: result.dimensions.map((item) => ({
       ...item,
       displayLabel: item.label || `${item.left}/${item.right}`,
-      displayValue: item.pole ? `${item.pole} ${item.percent}%` : `${item.percent}%`
+      displayValue: item.pole ? `${item.pole} ${item.percent}% · ${preferenceStrength(item.percent)}` : `${item.percent}%`,
+      displayValueShort: item.pole ? `${item.pole} ${item.percent}%` : `${item.percent}%`
     }))
   };
+}
+
+function preferenceStrength(percent) {
+  if (percent <= 55) return "轻微";
+  if (percent <= 70) return "中等";
+  if (percent <= 85) return "明显";
+  return "强烈";
 }

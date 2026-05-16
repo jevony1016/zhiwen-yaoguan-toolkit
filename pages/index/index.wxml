@@ -67,7 +67,7 @@
         </view>
         <view class="toolInfo">
           <text class="toolName">人格小测</text>
-          <text class="toolDesc">16 型人格与医药人状态码</text>
+          <text class="toolDesc">通用 16 型人格与医药人 SBTI</text>
         </view>
         <view class="toolMeta">
           <text class="toolCount">2 项</text>

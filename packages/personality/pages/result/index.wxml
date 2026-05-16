@@ -60,6 +60,21 @@
 
   <view class="disclaimer">{{result.disclaimer}}</view>
 
+  <view class="section" wx:if="{{result.officialLinks && result.officialLinks.length}}">
+    <text class="sectionTitle">官方入口</text>
+    <view class="officialCard">
+      <block wx:for="{{result.officialLinks}}" wx:key="url">
+        <view class="officialRow" data-url="{{item.url}}" bindtap="copyOfficialLink">
+          <view class="officialInfo">
+            <text class="officialLabel">{{item.label}}</text>
+            <text class="officialUrl">{{item.url}}</text>
+          </view>
+          <text class="officialAction">复制</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
   <view class="bottomActions">
     <button class="bottomBtn primary" bindtap="retest">重新测试</button>
     <button class="bottomBtn secondary" bindtap="switchTest">{{type === 'sbti' ? '测 16 型人格' : '测医药人 SBTI'}}</button>

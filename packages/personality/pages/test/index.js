@@ -23,7 +23,7 @@ Page({
     const type = options.type === "sbti" ? "sbti" : "mbti";
     const questions = type === "sbti" ? sbti.questions : mbti.questions;
     const title = type === "sbti" ? "医药人 SBTI" : "16 型人格偏好";
-    const intro = type === "sbti" ? "请按你在真实项目中的常见反应选择，不用追求标准答案。" : "请按你更自然、更常出现的偏好选择，不用选择理想中的自己。";
+    const intro = type === "sbti" ? "请按你在真实项目中的常见反应选择，不用追求标准答案。" : "请按日常生活中更自然、更常出现的偏好选择，不用选择理想中的自己。";
 
     wx.setNavigationBarTitle({ title });
     this.setData({
