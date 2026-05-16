@@ -6,6 +6,9 @@ Page({
       },
       {
         path: "/packages/gcp/pages/glossary/index"
+      },
+      {
+        path: "/packages/personality/pages/home/index"
       }
     ]
   },

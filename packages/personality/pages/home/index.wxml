@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="hero">
+    <view class="heroVisual">
+      <view class="orbit orbitA"></view>
+      <view class="orbit orbitB"></view>
+      <view class="centerMark">ZW</view>
+      <view class="spark sparkA"></view>
+      <view class="spark sparkB"></view>
+    </view>
+    <text class="heroTitle">人格小测</text>
+    <text class="heroDesc">认真一点理解自己，也轻松一点看见项目组里的隐藏角色。</text>
+  </view>
+
+  <view class="section">
+    <text class="sectionTitle">选择测试</text>
+    <view class="testList">
+      <block wx:for="{{tests}}" wx:key="id">
+        <view class="testCard {{item.accent}}" data-type="{{item.id}}" bindtap="startTest">
+          <view class="testTop">
+            <view class="testBadge">{{item.subtitle}}</view>
+            <text class="testMeta">{{item.meta}}</text>
+          </view>
+          <text class="testTitle">{{item.title}}</text>
+          <text class="testDesc">{{item.desc}}</text>
+          <view class="testAction">
+            <text>开始测试</text>
+            <text class="actionArrow">›</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="note">
+    <text>测试结果仅供学习、娱乐和自我观察，不构成心理诊断或职业决策依据。</text>
+  </view>
+</view>

@@ -139,6 +139,58 @@
   box-shadow: 0 4rpx 16rpx rgba(0, 122, 255, 0.25);
 }
 
+/* 人格小测图标 - 状态脉冲风格 */
+.icon-personality {
+  background: linear-gradient(135deg, #5856d6 0%, #af52de 100%);
+  box-shadow: 0 4rpx 16rpx rgba(88, 86, 214, 0.25);
+}
+
+.iconPulse {
+  position: relative;
+  width: 56rpx;
+  height: 48rpx;
+}
+
+.pulseDot {
+  position: absolute;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.dot1 {
+  left: 0;
+  bottom: 4rpx;
+}
+
+.dot2 {
+  left: 20rpx;
+  top: 2rpx;
+}
+
+.dot3 {
+  right: 0;
+  bottom: 10rpx;
+}
+
+.pulseLine {
+  position: absolute;
+  left: 8rpx;
+  right: 8rpx;
+  top: 22rpx;
+  height: 4rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.72);
+  transform: rotate(-18deg);
+}
+
+/* E6(R3) 图标 - 法规文档风格 */
+.icon-e6r3 {
+  background: linear-gradient(135deg, #ff9500 0%, #ff7a00 100%);
+  box-shadow: 0 4rpx 16rpx rgba(255, 149, 0, 0.25);
+}
+
 .iconBook {
   width: 48rpx;
   height: 38rpx;

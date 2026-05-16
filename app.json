@@ -18,6 +18,15 @@
         "pages/glossary/index",
         "pages/detail/detail"
       ]
+    },
+    {
+      "root": "packages/personality",
+      "name": "personality",
+      "pages": [
+        "pages/home/index",
+        "pages/test/index",
+        "pages/result/index"
+      ]
     }
   ],
   "window": {

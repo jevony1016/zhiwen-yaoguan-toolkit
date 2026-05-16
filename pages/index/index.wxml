@@ -52,6 +52,29 @@
           <text class="toolArrow">›</text>
         </view>
       </view>
+
+      <!-- 人格小测 -->
+      <view class="toolCard" data-path="{{tools[2].path}}" bindtap="openTool">
+        <view class="toolIconWrap">
+          <view class="toolIcon icon-personality">
+            <view class="iconPulse">
+              <view class="pulseDot dot1"></view>
+              <view class="pulseDot dot2"></view>
+              <view class="pulseDot dot3"></view>
+              <view class="pulseLine"></view>
+            </view>
+          </view>
+        </view>
+        <view class="toolInfo">
+          <text class="toolName">人格小测</text>
+          <text class="toolDesc">16 型人格与医药人状态码</text>
+        </view>
+        <view class="toolMeta">
+          <text class="toolCount">2 项</text>
+          <text class="toolArrow">›</text>
+        </view>
+      </view>
+
     </view>
   </view>
 

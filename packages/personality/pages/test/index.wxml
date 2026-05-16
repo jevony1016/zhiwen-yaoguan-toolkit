@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="top">
+    <text class="title">{{title}}</text>
+    <text class="intro">{{intro}}</text>
+    <view class="progressWrap">
+      <view class="progressBar" style="width: {{progress}}%;"></view>
+    </view>
+    <text class="progressText">{{current + 1}} / {{questions.length}}</text>
+  </view>
+
+  <view class="questionCard">
+    <text class="questionIndex">第 {{current + 1}} 题</text>
+    <view class="choicePair">
+      <view class="choiceSide leftSide">
+        <text>{{currentQuestion.left}}</text>
+      </view>
+      <view class="divider">或</view>
+      <view class="choiceSide rightSide">
+        <text>{{currentQuestion.right}}</text>
+      </view>
+    </view>
+
+    <view class="optionList">
+      <block wx:for="{{optionValues}}" wx:for-index="idx" wx:key="*this">
+        <view class="optionItem {{answers[current] === item ? 'selected' : ''}}" data-value="{{item}}" bindtap="selectOption">
+          <view class="optionDot"></view>
+          <text>{{optionLabels[idx]}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="navBtn secondary" bindtap="prevQuestion" disabled="{{current === 0}}">上一题</button>
+    <button class="navBtn primary" bindtap="nextQuestion">{{current === questions.length - 1 ? '查看结果' : '下一题'}}</button>
+  </view>
+</view>

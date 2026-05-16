@@ -1,0 +1,71 @@
+<view class="page" wx:if="{{result}}">
+  <view class="resultHero {{type}}">
+    <view class="typeMark">
+      <text class="typeCode">{{result.type}}</text>
+    </view>
+    <text class="resultTitle">{{result.name}}</text>
+    <text class="resultSummary">{{result.summary}}</text>
+    <view class="keywordRow">
+      <block wx:for="{{result.keywords}}" wx:key="*this">
+        <text class="keyword">{{item}}</text>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="sectionTitle">维度画像</text>
+    <view class="dimensionCard">
+      <block wx:for="{{result.dimensions}}" wx:key="key">
+        <view class="dimensionItem">
+          <view class="dimensionTop">
+            <text class="dimensionLabel">{{item.displayLabel}}</text>
+            <text class="dimensionValue">{{item.displayValue}}</text>
+          </view>
+          <view class="barTrack">
+            <view class="barFill {{type}}" style="width: {{item.percent}}%;"></view>
+          </view>
+          <text class="dimensionCopy" wx:if="{{item.copy}}">{{item.copy}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="sectionTitle">报告解读</text>
+    <view class="reportCard">
+      <block wx:for="{{result.sections}}" wx:key="title">
+        <view class="reportItem">
+          <text class="reportTitle">{{item.title}}</text>
+          <text class="reportText">{{item.text}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="sectionTitle">分享图片</text>
+    <view class="shareCard">
+      <view class="sharePreview {{type}}">
+        <text class="shareType">{{result.type}}</text>
+        <text class="shareName">{{result.name}}</text>
+        <text class="shareLine">{{result.summary}}</text>
+      </view>
+      <view class="shareActions">
+        <button class="shareBtn" bindtap="generateShareImage">生成分享图</button>
+        <button class="shareBtn secondary" bindtap="previewShareImage">预览</button>
+        <button class="shareBtn secondary" bindtap="saveShareImage">保存</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="disclaimer">{{result.disclaimer}}</view>
+
+  <view class="bottomActions">
+    <button class="bottomBtn primary" bindtap="retest">重新测试</button>
+    <button class="bottomBtn secondary" bindtap="switchTest">{{type === 'sbti' ? '测 16 型人格' : '测医药人 SBTI'}}</button>
+  </view>
+
+  <view class="homeLink" bindtap="backHome">返回人格小测首页</view>
+
+  <canvas canvas-id="shareCanvas" class="shareCanvas"></canvas>
+</view>

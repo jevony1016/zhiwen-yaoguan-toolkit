@@ -1,0 +1,210 @@
+.page {
+  min-height: 100vh;
+  background: #f2f2f7;
+  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64rpx 40rpx 44rpx;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2f7 100%);
+}
+
+.heroVisual {
+  position: relative;
+  width: 220rpx;
+  height: 180rpx;
+  margin-bottom: 26rpx;
+}
+
+.orbit {
+  position: absolute;
+  border: 4rpx solid rgba(88, 86, 214, 0.18);
+  border-radius: 50%;
+}
+
+.orbitA {
+  left: 18rpx;
+  top: 22rpx;
+  width: 168rpx;
+  height: 112rpx;
+  transform: rotate(-18deg);
+}
+
+.orbitB {
+  right: 10rpx;
+  top: 38rpx;
+  width: 148rpx;
+  height: 96rpx;
+  border-color: rgba(52, 199, 89, 0.2);
+  transform: rotate(24deg);
+}
+
+.centerMark {
+  position: absolute;
+  left: 62rpx;
+  top: 40rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 28rpx;
+  background: linear-gradient(135deg, #5856d6 0%, #34c759 100%);
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14rpx 36rpx rgba(88, 86, 214, 0.24);
+}
+
+.spark {
+  position: absolute;
+  width: 22rpx;
+  height: 22rpx;
+  border-radius: 50%;
+  background: #ff9500;
+}
+
+.sparkA {
+  left: 26rpx;
+  top: 36rpx;
+}
+
+.sparkB {
+  right: 30rpx;
+  bottom: 30rpx;
+  background: #007aff;
+}
+
+.heroTitle {
+  color: #1c1c1e;
+  font-size: 48rpx;
+  font-weight: 800;
+}
+
+.heroDesc {
+  color: #636366;
+  font-size: 29rpx;
+  line-height: 1.6;
+  margin-top: 14rpx;
+  text-align: center;
+  max-width: 600rpx;
+}
+
+.section {
+  padding: 0 32rpx;
+  margin-top: 18rpx;
+}
+
+.sectionTitle {
+  display: block;
+  color: #8e8e93;
+  font-size: 26rpx;
+  font-weight: 600;
+  letter-spacing: 1.5rpx;
+  margin: 0 0 20rpx 16rpx;
+}
+
+.testList {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.testCard {
+  padding: 34rpx;
+  border-radius: 32rpx;
+  background: #ffffff;
+  box-shadow: 0 2rpx 20rpx rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+.testCard::after {
+  content: "";
+  position: absolute;
+  right: -40rpx;
+  top: -50rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.testCard.purple::after {
+  background: #5856d6;
+}
+
+.testCard.green::after {
+  background: #34c759;
+}
+
+.testCard:active {
+  background: #f7f7f7;
+}
+
+.testTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.testBadge {
+  padding: 10rpx 18rpx;
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+  background: rgba(88, 86, 214, 0.1);
+  color: #5856d6;
+}
+
+.green .testBadge {
+  background: rgba(52, 199, 89, 0.12);
+  color: #248a3d;
+}
+
+.testMeta {
+  color: #8e8e93;
+  font-size: 26rpx;
+}
+
+.testTitle {
+  display: block;
+  color: #1c1c1e;
+  font-size: 40rpx;
+  font-weight: 750;
+  margin-top: 28rpx;
+}
+
+.testDesc {
+  display: block;
+  color: #636366;
+  font-size: 29rpx;
+  line-height: 1.65;
+  margin-top: 12rpx;
+}
+
+.testAction {
+  display: flex;
+  align-items: center;
+  color: #007aff;
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-top: 28rpx;
+}
+
+.actionArrow {
+  font-size: 42rpx;
+  margin-left: 8rpx;
+  color: #c7c7cc;
+}
+
+.note {
+  margin: 36rpx 48rpx 0;
+  color: #8e8e93;
+  font-size: 24rpx;
+  line-height: 1.7;
+  text-align: center;
+}
